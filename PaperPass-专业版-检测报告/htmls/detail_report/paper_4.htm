@@ -1,0 +1,609 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>PaperPass 最权威论文抄袭检测系统</title>
+<style type="text/css">
+<!--
+user_icon {
+color: #FFFFFF;
+}
+html
+{
+overflow-x:hidden;
+overflow-y:auto;
+}
+body,td,th {
+font-family: "微软雅黑";
+font-size: 12px;
+}
+h1,h2,h3,h4,h5,h6 {
+font-family: "宋体";
+}
+p{
+margin-bottom:10px;
+}
+demo_padding {
+line-height: 30px;
+}
+.zhengwen {
+padding-right: 15px;
+padding-left: 5px;
+padding-bottom:100px;
+font-size: 13px;
+line-height: 20px;
+color: #666666;
+}
+.zhengwencenter {
+padding-right: 15px;
+padding-left: 0px;
+margin-bottom:10px;
+font-size: 13px;
+line-height: 20px;
+color: #666666;
+text-align:center
+}
+.neikuang {
+background-color: #EBEBEB;
+border: 1px solid #999999;
+padding-right: 10px;
+padding-left: 10px;
+margin-top:10px;
+margin-left:25px;
+width:300px;
+}
+.shubu{
+height: 20px;
+width: 20px;
+margin-left:25px;
+background-color: #FFFFFF;
+border: 1px solid #999999;
+text-align: center;
+vertical-align: middle;
+display: block;
+color: #666666;
+}
+a.red:link {color:#FF0000}
+a.red:visited {color:#FF0000}
+a.red:hover {color:#000000}
+a.red:active {color:#000000}
+
+a.orange:link {color:#FF6600}
+a.orange:visited {color:#FF6600}
+a.orange:hover {color:#000000}
+a.orange:active {color:#000000}
+
+a.dark:link {color:#666666}
+a.dark:visited {color:#666666}
+a.dark:hover {color:#000000}
+a.dark:active {color:#000000}
+
+a.pagelink:hover {color:#000000}
+a.pagelink:active {color:#000000}
+
+.green{color:#008000}
+.gray{color:#666666}
+.red{color:#FF0000}
+.orange{color:#FF6600}
+a{TEXT-DECORATION:none}
+
+-->
+</style>
+</head>
+<body>
+
+
+<div class="zhengwen">
+<div>
+<span style="margin-left:25px"></span>
+[
+<a class="pagelink" href="paper_1.htm">首页</a>
+<a class="pagelink" href="paper_3.htm">上一页</a>
+<a class="pagelink" href="paper_5.htm">下一页</a>
+<a class="pagelink" href="paper_6.htm">尾页</a>
+页码：4/6页
+]
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">87</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>图3.6 scrapy工作流程</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">88</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>在这里我们稍微修改一下其执行过程。</span><span class='green'>因为我们的道路坐标需要被整理成GeoJson格式，故我们将舍弃itempipeline模块，在spiders中直接将爬取的数据进行处理并保存。</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">89</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>道路坐标的爬取逻辑如图3.7所示。</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">90</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>图3.7 道路坐标的基本爬取逻辑</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">91</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>其中高德地图返回的json中status如果为1则为正常，如果不是1，则说明请求出现了错误。</span><span class='green'>实际操作发现，每爬取100条道路数据，高德地图的服务器端就会封锁本机ip。</span><span class='green'>这时候就要进行代理ip的修改。</span><span class='green'>为了实现代理ip的修改，我们在DownloaderMiddleware中加入了httpProxyMiddleware中间件，并在settings.py中注册。</span><span class='green'>其主要功能是在遇见 status为6的时候切换代理 ip，并且在代理 ip均不能用时，在</span><span class='green'>66 ip. com、 httpdaili. com等免费代理 ip网站中爬取可用 ip并保存供接下使用。</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">92</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>此部分数据不同于京津冀边界数据，通过高德地图的 api获得的 json数据中，</span><span class='green'>地理坐标在 json[’ data’][’ poi_ list’]中 typecode属性为190301内 domain_ list块内的第四个元素的 value属性中，</span><span class='green'>如图3.8所示。</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">93</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>图3.8 高德地图返回数据示例</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">94</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>返回的数据中，有部分数据发生value属性为空的情况，这部分数据经检验均为非要道的道路坐标，故处理方式为将数据舍弃，道路名称删除。</span><span class='green'>另外，此数据在进行geoJson格式转换时的geometry属性内的type属性为MultiLineString。</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">95</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>3.2.3 京津冀加油站、化工厂、事故多发路段坐标获取</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">96</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>京津冀的加油站、化工厂坐标在高德地图上有标注，故此两地的坐标可以通过高德地图的api获得。</span><span class='green'>方法同上一部分的路网数据获取一样，此处不做赘述。</span><span class='green'>而事故多发路段在高德地图中没有标注，通过调查发现，各地事故多发路段随着时间的不同，其分布也不同。</span><a href='../sentence_detail/278/278.htm' target='right' class='orange' >因为事故多发路段的定义为如某路段交通事故次数相对较多事故造成的伤亡情况相对较为严重就可以认定为事故多发路段。</a><span class='green'>所以这种路段并不固定。</span><span class='green'>因此我通过一段时间的搜集，获得了一些历史事故多发路段的位置，因位置分布较少，故采用手动确定坐标。</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">97</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>另外这里的位置坐标在GeoJson中geometry属性内的type属性为point。</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">98</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>3.3 社交网络信息获取</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">99</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><a href='../sentence_detail/283/283.htm' target='right' class='orange' >社交网络数据的来源是新浪微博，爬取流程如图3.9所示。</a><span class='green'>首先通过selenium中的webdriver登录微博，以获取微博的cookie，将cookie存入redis。</span><span class='green'>Selenium是一系列的网页自动化测试工具，并且被用在很多工业项目中[13][14]，包括Selenium webDriver和Selenium IDE。</span><span class='green'>Selenium webDriver可以用来创建健壮的、基于浏览器的自动化套件或测试。</span><span class='green'>而Selenium IDE用来创建快速的bug测试脚本[15]。</span><span class='green'>这里用webDriver与chrome浏览器来模拟微博登录以获取cookie。</span><a href='../sentence_detail/289/289.htm' target='right' class='orange' >而redis是一款开源的，基于内存的数据结构存储器，可用作数据库，缓存和消息代理。</a><a href='../sentence_detail/290/290.htm' target='right' class='orange' >它支持的数据结构，包括字符串，散列，列表，集合等。</a><span class='green'>这里用做存储维护cookie和维护request队列。</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">100</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><a href='../sentence_detail/292/292.htm' target='right' class='orange' >图3.9 微博数据爬取流程</a>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">101</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><a href='../sentence_detail/293/293.htm' target='right' class='red' >而mongodb是一个基于分布式文件存储的数据库。</a><span class='green'>其功能丰富，数据结构较mysql要松散，类似于json，且部署方便。</span><span class='green'>Mongodb非常适合网站实时数据处理。</span><span class='green'>故对于相对于mysql，它更适合存储通过scrapy爬取的微博信息。</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">102</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><a href='../sentence_detail/297/297.htm' target='right' class='orange' >微博信息的主题爬取类似于高德地图的webapi。</a><span class='green'>即通过访问微博的search功能url，将keyword与查询时间间隔拼接在url中，获得response，提取数据。</span><span class='green'>url的格式如图3.10所示。</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">103</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><a href='../sentence_detail/300/300.htm' target='right' class='orange' >图3.10 微博主题信息爬取url</a>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">104</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>获得的response经过xpath的筛选，获得微博的ID、微博内容、点赞数、转载数、评论数等item传入pipeline。</span><a href='../sentence_detail/302/302.htm' target='right' class='red' >Xpath是即为XML路径语言，它是一种用来确定XML（标准通用标记语言的子集）文档中某部分位置的语言。</a><span class='green'>Scrapy应用xpath来在response中寻找相应的item。</span><span class='green'>在pipeline中，将相应的item存入mongodb中。</span><span class='green'>而相应主题下的微博的评论者以及转发者是后面构建关系网络的关键，这里会在微博的评论和转发中找到作者的主页，</span><span class='green'>并查询其关注者和被关注者，同时以 edge的形式保存 id（例如19443886541002357894代表 id为1944388654的人关注了 id为1002357894的人），</span><span class='green'>同时对找到的关注者和被关注着继续进行查询及保存，这样就得到了微博用户的关注与被关注数据。</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">105</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>因为对于微博的访问存在cookie，多以对于爬虫的访问，微博的反爬虫机制并不会频繁触发。</span><span class='green'>同时，因为代理ip会拖慢爬取速度，故本部分并没有使用httpProxyMiddleware。</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">106</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>爬取后的数据结构如图3.11所示。</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">107</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>图3.11 mongoDB中的微博数据结构</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">108</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>3.4 本章小结</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">109</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>本章介绍了数据获取的整体设计、地理信息获取过程以及方法、社交网络信息获取的过程以及方法。</span><span class='green'>其中地理信息的获取分为三个部分，</span><span class='green'>分别是京津冀边界坐标的获取、京津冀路网数据的获取、京津冀化工厂、加油站以及事故多发路段的获取，</span><a href='../sentence_detail/316/316.htm' target='right' class='orange' >京津冀边界坐标的获取是通过高德地图的 JavaScriptAPI的绘制行政区划边界功能获得；</a><span class='green'>京津冀路网数据是通过高德地图的webapi获取，为了解决ip被禁的情况，通过httpProxyMiddleware来更换代理ip以及爬取免费可用的代理ip；</span><span class='green'>京津冀加油站和化工厂坐标的获取同京津冀路网获取方法相同，而</span><span class='green'>京津冀事故多发路段的坐标获取则因为能得到的数据量过小而通过手动获取。</span><span class='green'>而社交网络信息的获取具体为通过 Selenium webdriver模拟微博登录获得 cookie，</span><span class='green'>保存在 redis中，通过和高德地图 webapi相似的方法拼接关键字访问微博的搜索功能，</span><span class='green'>获得相应关键字下的微博信息、发布者信息以及评论信息等，并通过 scrapy的 pipeline将数据保存在 mongoDB中，</span><span class='green'>同时在主题微博下爬取用户信息，通过有向 edge的方式保存关注与被关注关系，并在关注者与被关注者中继续进行关注者被关注者的爬取，</span><a href='../sentence_detail/324/324.htm' target='right' class='orange' >得到的信息继续保存，获得微博用户的关注与被关注数据。</a>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">110</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>第四章 数据分析</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">111</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>4.1 安全地图构建</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">112</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>D3.js内部自带地图绘制函数，地图的绘制比较方便，具体流程见图4.1。</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">113</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>图4.1 安全地图绘制流程</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">114</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>首先从本地取出京津冀地理信息的json数据，具体格式为GeoJson格式，格式的详情见第三章3.2小结地理信息获取。</span><a href='../sentence_detail/330/330.htm' target='right' class='orange' >检查数据格式，对不符合规则的格式进行修改调整。</a>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">115</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>然后用d3.js进行地图的绘制，具体实现如下：</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">116</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>1） 设置用于地图展示的svg长宽。</span><span class='green'>var width = 1500;</span><span class='green'>var height = 1500;</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">117</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><a href='../sentence_detail/335/335.htm' target='right' class='orange' >2） 设定映射函数，用于将地图实际坐标映射到svg中。</a>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">118</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>projection = d3.geo.mercator()</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">119</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>center([117.19， 39.14])//设置映射中心坐标</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">120</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>scale(15000)//设置缩放比例</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">121</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>translate([width/2， height/2]);</span><span class='green'>//设置映射中心</span>
+</p>
+</div>
+
+<div>
+<p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" width="50"><div class="shubu">122</div></td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+
+<span style="margin-left:25px"></span><span class='green'>var path = d3.geo.path()</span>
+</p>
+</div>
+
+
+<div>
+<span style="margin-left:25px"></span>
+[
+<a class="pagelink" href="paper_1.htm">首页</a>
+<a class="pagelink" href="paper_3.htm">上一页</a>
+<a class="pagelink" href="paper_5.htm">下一页</a>
+<a class="pagelink" href="paper_6.htm">尾页</a>
+页码：4/6页
+]
+</div>
+
+<br>
+<div style="margin-left:8px">
+
+<div style="text-align:center;background-color:#CA122C;margin-top:30px;overflow:hidden;">
+<a href="http://www.paperpass.com/publish/index?from=ppreport_banner" target="_blank" style="display:block;"><img height="180" src="http://file.paperpass.com/images/fabiao.jpg"></a>
+</div>
+
+</div>
+</div>
+
+
+<div class="zhengwencenter">
+<p>
+检测报告由<a href="http://www.paperpass.com/" target="_blank">PaperPass</a>文献相似度检测系统生成
+</p>
+<p>
+Copyright © 2007-2017 PaperPass
+</p>
+</div>
+<div style="margin-bottom:400px"></div>
+</body>
+</html>
